@@ -1,0 +1,9 @@
+&encoder_0 {
+  zmk,bindings = <&encoder_cw KC_VOLU>, <&encoder_ccw KC_VOLD>;
+};
+&encoder_1 {
+  zmk,bindings = <&encoder_cw KC_PGUP>, <&encoder_ccw KC_PGDN>;
+};
+&encoder_2 {
+  zmk,bindings = <&encoder_cw KC_MNXT>, <&encoder_ccw KC_MPRV>;
+};
