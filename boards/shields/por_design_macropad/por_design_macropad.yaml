@@ -1,0 +1,24 @@
+name: "POR-Design Macropad"
+url: "https://github.com/preechatrading99-glitch/zmk-config-New"
+maintainer: "preechatrading99-glitch"
+matrix_pins:
+  rows: [1, 2, 3, 4, 5]
+  cols: [6, 7, 8, 9, 10, 11]
+diode_direction: COL2ROW
+encoder_count: 3
+encoder_positions:
+  - row: 0
+    col: 5
+  - row: 0
+    col: 4
+  - row: 5
+    col: 5
+led_count: 30
+led_data_pin: 0
+features:
+  - rotary_encoder
+  - per_key_rgb
+  - zmk_studio
+  - nice_nano_v2
+description: |
+  Custom 5x6 macropad with 3 rotary encoders and per-key WS2812 RGB, based on Nice!Nano v2, designed for ZMK Studio.
