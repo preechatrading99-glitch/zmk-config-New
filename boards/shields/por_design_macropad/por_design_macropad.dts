@@ -1,0 +1,35 @@
+/ {
+  chosen {
+    zmk,keyboard = &por_design_macropad;
+  };
+};
+
+&por_design_macropad {
+  compatible = "zmk,keyboard";
+  label = "POR-Design Macropad";
+  matrix_rows = <5>;
+  matrix_cols = <6>;
+  diode_direction = "col2row";
+  row_gpios = <&gpio1 1 GPIO_ACTIVE_LOW>, <&gpio1 2 GPIO_ACTIVE_LOW>, <&gpio1 3 GPIO_ACTIVE_LOW>, <&gpio1 4 GPIO_ACTIVE_LOW>, <&gpio1 5 GPIO_ACTIVE_LOW>;
+  col_gpios = <&gpio1 6 GPIO_ACTIVE_LOW>, <&gpio1 7 GPIO_ACTIVE_LOW>, <&gpio1 8 GPIO_ACTIVE_LOW>, <&gpio1 9 GPIO_ACTIVE_LOW>, <&gpio1 10 GPIO_ACTIVE_LOW>, <&gpio1 11 GPIO_ACTIVE_LOW>;
+  encoder_0: encoder0 {
+    gpios = <&gpio0 15 GPIO_ACTIVE_LOW>, <&gpio0 16 GPIO_ACTIVE_LOW>;
+    label = "Rotary Encoder 0";
+  };
+  encoder_1: encoder1 {
+    gpios = <&gpio0 17 GPIO_ACTIVE_LOW>, <&gpio0 18 GPIO_ACTIVE_LOW>;
+    label = "Rotary Encoder 1";
+  };
+  encoder_2: encoder2 {
+    gpios = <&gpio0 19 GPIO_ACTIVE_LOW>, <&gpio0 20 GPIO_ACTIVE_LOW>;
+    label = "Rotary Encoder 2";
+  };
+  ws2812 {
+    compatible = "ws2812";
+    chain-length = <30>;
+    data-gpios = <&gpio0 0 GPIO_ACTIVE_HIGH>;
+    label = "WS2812 LEDs";
+  };
+};
+#include "rotary_overlay.dtsi"
+#include "led_overlay.dtsi"
