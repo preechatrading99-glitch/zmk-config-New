@@ -1,0 +1,31 @@
+name: Build POR-Design Macropad ZMK firmware
+
+on:
+  push:
+    branches: [main, por-design-macropad]
+  pull_request:
+    branches: [main, por-design-macropad]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      - name: Install west and dependencies
+        run: |
+          pip install west
+          west init -l . || true
+          west update
+      - name: Build (Nice!Nano v2)
+        run: |
+          west build -s app -b nice_nano_v2 -- -DSHIELD=por_design_macropad
+      - name: Upload firmware
+        uses: actions/upload-artifact@v3
+        with:
+          name: zmk-por-design-macropad
+          path: build/zephyr/zmk.uf2
