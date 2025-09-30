@@ -25,7 +25,7 @@ jobs:
         run: |
           west build -s app -b nice_nano_v2 -- -DSHIELD=por_design_macropad
       - name: Upload firmware
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: zmk-por-design-macropad
           path: build/zephyr/zmk.uf2
